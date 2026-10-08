@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thư viện lớp học - JavaScript DOM thuần viết bằng TypeScript + MockAPI" />
+  <title>Thư viện lớp học</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <div>
+        <p class="eyebrow header-eyebrow">TypeScript + MockAPI</p>
+        <h1>📚 Thư viện lớp học</h1>
+        <p>Sách yêu thích: <strong id="favorite-count">0</strong></p>
+      </div>
+
+      <button
+        id="theme-btn"
+        class="theme-button"
+        type="button"
+        aria-label="Chuyển chế độ sáng tối"
+        title="Chuyển chế độ sáng tối"
+      >
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section" aria-labelledby="toolbar-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Công cụ</p>
+          <h2 id="toolbar-title">Tìm kiếm và lọc</h2>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <label class="field">
+          <span>Tìm theo tên sách</span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Ví dụ: Clean Code..."
+            autocomplete="off"
+          />
+        </label>
+
+        <label class="field">
+          <span>Thể loại</span>
+          <select id="genre-filter">
+            <option value="all">Tất cả thể loại</option>
+          </select>
+        </label>
+      </div>
+
+      <p id="status" class="status" aria-live="polite">Đang tải...</p>
+    </section>
+
+    <section class="section" aria-labelledby="book-list-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Danh sách</p>
+          <h2 id="book-list-title">Các đầu sách</h2>
+        </div>
+      </div>
+
+      <div id="book-list" class="book-list"></div>
+    </section>
+
+    <section class="section" aria-labelledby="add-book-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Biểu mẫu</p>
+          <h2 id="add-book-title">Thêm sách mới</h2>
+        </div>
+      </div>
+
+      <form id="book-form" class="book-form" novalidate>
+        <div class="form-grid">
+          <label class="field">
+            <span>Mã sách</span>
+            <input id="code" name="code" type="text" placeholder="Ví dụ: B011" autocomplete="off" />
+            <small id="code-error" class="error"></small>
+          </label>
+
+          <label class="field">
+            <span>Tên sách</span>
+            <input id="title" name="title" type="text" placeholder="Ít nhất 3 ký tự" autocomplete="off" />
+            <small id="title-error" class="error"></small>
+          </label>
+
+          <label class="field">
+            <span>Tác giả</span>
+            <input id="author" name="author" type="text" placeholder="Tên tác giả" autocomplete="off" />
+            <small id="author-error" class="error"></small>
+          </label>
+
+          <label class="field">
+            <span>Thể loại</span>
+            <select id="genre" name="genre">
+              <option value="">-- Chọn thể loại --</option>
+              <option value="Công nghệ">Công nghệ</option>
+              <option value="Văn học">Văn học</option>
+              <option value="Khoa học">Khoa học</option>
+              <option value="Kỹ năng">Kỹ năng</option>
+            </select>
+            <small id="genre-error" class="error"></small>
+          </label>
+
+          <label class="field">
+            <span>Năm xuất bản</span>
+            <input id="year" name="year" type="number" min="1900" step="1" placeholder="Ví dụ: 2024" />
+            <small id="year-error" class="error"></small>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button id="submit-btn" class="primary-button" type="submit">+ Thêm sách</button>
+          <button class="secondary-button" type="reset">Xóa nội dung</button>
+        </div>
+
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>DOM • TypeScript • Fetch API • async/await • MockAPI • localStorage</p>
+  </footer>
+
+  <script type="module" src="/src/app.ts"></script>
+</body>
+</html>
